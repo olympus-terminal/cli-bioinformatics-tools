@@ -22,7 +22,9 @@ find .  -maxdepth 1 -type f ! -iname "*.xml" -delete
 [drn2@login-0-3 genomes_all]$ for f in *.fa; do printf "%s" "$f " >> file.txt; grep -c '>' $f | xargs -I{} printf "%s" "{}      " >> file.txt; grep -c 'N' $f | xargs -I{} printf "%s" "{}^M" >> file.txt; done
 
 ### to remove contigs
-samtools faidx MYFASTAFILE && cat MYCONTAMINATED_CONTIGS | cut -f 1 | xargs -I {} echo "samtools faidx MYFASTAFILE {} >> CONTAM_FASTA"
+#!/bin/bash
+##argv1=fasta.file & argv2=list.removed -- samtools required
+samtools faidx $1 && cat $2 | cut -f 1 | xargs -I {} echo "samtools faidx $1 {} >> select.fa"
 
 ### list number of files by dir in tree
 find . -type d |while read ans; do echo -n $ans " ";ls $ans|wc -l;done
