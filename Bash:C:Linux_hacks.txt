@@ -4,7 +4,7 @@ sed -n -e '/>contig/,/>/ p' Genome.fa
 ### listen
 for f in *.txt
 do
- grep -o -P '.{0,0}PF.{0,5}' | xargs -I{} grep {} EC-Pfam_calculated_associations_Extended.csv >>listen
+ grep -o -P '.{0,0}PF.{0,5}' | xargs -I{} grep {} associations.columns >>listen
 done
 
 ### disconnect process from terminal session
