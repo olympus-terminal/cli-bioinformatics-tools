@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for f in *.xml*
+do
+ grep -nri "hit_def" $f > "$f"_hitdefs.txt
+ sed 's/.*Tax=//g' "$f"_hitdefs.txt >"$f"_hitdefs_t1
+ sed 's/ RepID.*//g' "$f"_hitdefs_t1 > "$f"_hitdefs_t2
+ sed 's/ /_/g' "$f"_hitdefs_t2 > "$f"_hitdefs_species.txt
+ cat "$f"_hitdefs_species.txt | xargs -n1 | sort | uniq -c > "$f"_species_counts.txt
+ rm *_hitdefs*
+done
