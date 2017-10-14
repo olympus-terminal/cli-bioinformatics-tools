@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### assumes HMMsearch results, in .*domtblout format, are in the same directory as CDS and proteins ###
+### this script fetches nucleotide sequences. to fetch AA seq, specify .aa.fa files in fasta-search tool ###
 ### argv1 = Pfam keyword query ###
 ### 1st command to format HMMsearch results ###
 
