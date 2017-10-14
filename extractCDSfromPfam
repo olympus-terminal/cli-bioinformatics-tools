@@ -14,5 +14,9 @@ sed 's/.*://g' "$1"result >> "$1"resultB
 ###formatting###
 sed 's/\t.*//g' "$1"resultB >> "$1"resultC
 
+sort "$1"resultC > "$1"resultD
+
+uniq "$1"resultD >"$1"resultE
+
 ### Uses Guowei's fastasearch program to extract fasta sequences to align and make tree ###
-/scratch/drn2/GUOWEI_FastaSearch/fasta-search-it-all.sh "$1"resultC *.tr.fa >> "$1"_multi.aln.fa
+/scratch/drn2/GUOWEI_FastaSearch/fasta-search-it-all.sh "$1"resultE *.tr.fa >> "$1"_multi.aln.fa
