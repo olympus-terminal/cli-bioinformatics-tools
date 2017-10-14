@@ -5,6 +5,8 @@
 ### argv1 = Pfam keyword query ###
 ### 1st command to format HMMsearch results ###
 
+rm tabbed-*
+
 for f in *domtblout; do sed 's/ \+/\t/g' $f > tabbed-"$f"; done
 
 ### searches HMMsearch results ###
@@ -16,9 +18,8 @@ sed 's/.*://g' "$1"result >> "$1"resultB
 ###formatting###
 sed 's/\t.*//g' "$1"resultB >> "$1"resultC
 
-sort "$1"resultC > "$1"resultD
-
-uniq "$1"resultD >"$1"resultE
+sort -u -k1,1 "$1"resultC > "$1"resultD
 
 ### Uses Guowei's fastasearch program to extract fasta sequences to align and make tree ###
-/scratch/drn2/GUOWEI_FastaSearch/fasta-search-it-all.sh "$1"resultE *.tr.fa >> "$1"_multi.aln.fa
+/scratch/drn2/GUOWEI_FastaSearch/fasta-search-it-all.sh "$1"resultD *.tr.fa >> "$1"_multi.aln.fa
+
