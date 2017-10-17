@@ -1,0 +1,10 @@
+#!/bin/bash
+
+awk 'BEGIN {FS=OFS="\t"} \
+NR>1
+{total[$3$2]+=$1;domains[$3]++;species[$2]++} \
+END {n=asorti(species,copy1); printf"Species"; for (i=1; i<=n; i++) {printf "%s%s",FS,copy1[i]}; \
+print ""; \
+m=asorti(domains,copy2);for (j=1; j<=m; j++) {printf"%s", copy2[j]; \
+for (k=1; k<=n; k++) {printf "%s%s",FS,total[copy2[j]copy1[k]]}; \
+print""}}' table
