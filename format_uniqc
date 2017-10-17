@@ -1,0 +1,3 @@
+##add to bash.rc
+
+alias uniqc="uniq -c | sed 's/^[ ]*//;s/ /\t/'"
