@@ -1,0 +1,1 @@
+for f in tabbed-*; do wc -l $f | xargs -I{} echo "${f%.domtblout} {}">>PFAM_COUNTS.txt; done
