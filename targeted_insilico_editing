@@ -1,0 +1,5 @@
+#!/bin/bash
+
+awk 'NR == FNR { list[tolower($0)]=1; next } { if (! list[tolower($0)]) print }' $1 $2 > $3
+
+### arg1 is seq to remove, arg2 is master seq, arg3 is processed seq ###
