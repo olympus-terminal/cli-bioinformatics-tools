@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for f in *.new.txt
+do
+awk 'BEGIN {FS = "	"} ; {sum+=$3} END {print sum}' $f >tmp"$f"
+echo "$f" > tmp2"$f"
+paste tmp"$f" tmp2"$f" > tmp3"$f"
+cat tmp3"$f" >> all-tallies.txt
+rm tmp*
+done
