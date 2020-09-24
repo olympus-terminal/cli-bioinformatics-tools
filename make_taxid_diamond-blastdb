@@ -1,0 +1,3 @@
+#!/bin/bash
+
+diamond makedb --in $1 --db $2 --taxonmap ./ --taxonnodes ./
