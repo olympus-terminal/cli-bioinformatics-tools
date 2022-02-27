@@ -4,7 +4,7 @@ for f in *.aa.fa
 
 do
 
- sed '/\>/d' $f > "$f".pure ;
+ sed '/>/d' $f > "$f".pure ;
  sed 's/./&\n/g' "$f".pure | sort | uniq -ic > "$f".aa.count ;
  rm "$f".pure ;
 
