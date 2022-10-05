@@ -19,3 +19,8 @@ done
 mv tabbed* TABBED/
 mv tagged* TAGGED/
 mv *.v VFAMs/
+
+cd TAGGED
+mkdir HEADs
+
+for f in tagged-*; do cut -f 2 $f > "$f".heads; mv "$f".heads HEADs/ ; done
