@@ -1,1 +1,1 @@
-This repository includes simple scripts to extract, manipulate, aand modify biological sequence data.   
+This repository contains a variety of example scripts to use common and uncommon bioinformatic software.
