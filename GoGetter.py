@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 
 from Bio import Entrez
-Entrez.email = "drn2@nyu.edu"  # Always tell NCBI who you are
+Entrez.email = "you.email"  # Always tell NCBI who you are
 
 def get_go_terms(pfam_id):
     # Fetching the information about this PFAM from NCBI Entrez, using the Biopython 
